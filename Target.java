@@ -1,4 +1,3 @@
-// Client Side
 import java.io.*;
 import java.net.*;
 import java.util.Random;
@@ -11,10 +10,10 @@ public class Target {
         // Create a random number generator
         Random random = new Random();
 
-        // Generate random coordinates for the point within the space
-        int pointX = random.nextInt(spaceWidth);
-        int pointY = random.nextInt(spaceHeight);
-        return new int[]{pointX-500, pointY-500}; // -500 to make the axis interval between -500 and +500
+        // Generate random coordinates for the target within the space
+        int targetX = random.nextInt(spaceWidth);
+        int targetY = random.nextInt(spaceHeight);
+        return new int[]{targetX-500, targetY-500}; // -500 to make the axis interval between -500 and +500
     }
   public void run() {
 	try {
@@ -63,7 +62,14 @@ public class Target {
   }
 	
   public static void main(String[] args) {
-		Target target = new Target();
-		target.run();
+        while(true){
+		    Target target = new Target();
+		    target.run();
+            try {
+                    Thread.sleep(5000);
+                  } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+        }
   }
 }

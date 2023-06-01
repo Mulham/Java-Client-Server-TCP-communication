@@ -1,4 +1,3 @@
-// Server Side
 // The java.net class library provides classes Socket and ServerSocket for message passing for TCP/IP
 import java.net.*;
 import java.io.*;
